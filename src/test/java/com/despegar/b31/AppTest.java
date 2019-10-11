@@ -9,16 +9,15 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest {
 
-    private static final String COMUNAS_FILE = "/home/pedro/despegar/clase24/src/test/java/com/despegar/b31/comunas.csv";
-    private static final String MUESTRAS_FILE = "/home/pedro/despegar/clase24/src/test/java/com/despegar/b31/mapa_de_ruido_diurno.csv";
+    private static final String COMUNAS_FILE = "/comunas.csv";
+    private static final String MUESTRAS_FILE = "/mapa_de_ruido_diurno.csv";
 
     /**
      * Rigorous Test :-)
@@ -32,7 +31,9 @@ public class AppTest {
     @Test
     public void parseOfCSVShouldReturnAList() throws FileNotFoundException {
         List<List<String>> records = new ArrayList<>();
-        try (Scanner scanner = new Scanner(new File(MUESTRAS_FILE))) {
+        String muestrasFile = this.getClass().getResource(MUESTRAS_FILE).getFile();
+
+        try (Scanner scanner = new Scanner(new File(muestrasFile))) {
             while (scanner.hasNextLine()) {
                 records.add(getRecordFromLine(scanner.nextLine()));
             }
@@ -40,14 +41,17 @@ public class AppTest {
 
         assertNotNull(records);
 
-        records.subList(1, records.size()).stream().map(record -> {
+        List<Muestra> muestras = records.subList(1, records.size()).stream().map(record -> {
             String range = record.get(3).split(" ")[0];
             return new Muestra(record.get(1), record.get(2), Double.parseDouble(range));
         }).collect(Collectors.toList());
+
+        assertFalse(muestras.isEmpty());
+        assertEquals(muestras.size(), 167);
     }
 
     private List<String> getRecordFromLine(String line) {
-        List<String> values = new ArrayList<String>();
+        List<String> values = new ArrayList<>();
         try (Scanner rowScanner = new Scanner(line)) {
             rowScanner.useDelimiter(",");
             while (rowScanner.hasNext()) {
