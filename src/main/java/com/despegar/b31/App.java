@@ -134,26 +134,68 @@ public class App {
 
     // Ejercicio 8
     public static Map<Integer, Double> obtenerPromedioDeRuidoPorComuna(List<Muestra> muestras) {
-        Map<Integer, List<Double>> muestrasPorComuna = new HashMap<>();
 
-        // Agrupamos las muestras por comunas
-        for (Muestra muestra : muestras) {
-            if (!muestrasPorComuna.containsKey(muestra.getIdComuna())) {
-                muestrasPorComuna.put(muestra.getIdComuna(), new ArrayList<>());
-            }
-            muestrasPorComuna.get(muestra.getIdComuna()).add(muestra.getMediaDeRuido());
-        }
+        Map<Integer, List<Muestra>> muestrasPorComuna = agruparMuestrasPorComuna(muestras);
 
         // Calculamos el promedio de ruido por comuna
         Map<Integer, Double> resultado = new HashMap<>();
-        for(Map.Entry<Integer, List<Double>> entry : muestrasPorComuna.entrySet()) {
+        for(Integer idComuna : muestrasPorComuna.keySet()) {
+
+            List<Muestra> muestrasDeLaComuna = muestrasPorComuna.get(idComuna);
             Double suma = 0D;
-            for (Double ruido : entry.getValue()) {
-                suma += ruido;
+            for (Muestra muestra : muestrasDeLaComuna) {
+                suma += muestra.getMediaDeRuido();
             }
 
-            resultado.put(entry.getKey(), suma / entry.getValue().size());
+            resultado.put(idComuna, suma / muestrasDeLaComuna.size());
         }
         return resultado;
+    }
+
+    private static Map<Integer, List<Muestra>> agruparMuestrasPorComuna(List<Muestra> muestras) {
+        Map<Integer, List<Muestra>> resultado = new HashMap<>();
+
+        for (Muestra muestra : muestras) {
+            if (!resultado.containsKey(muestra.getIdComuna())) {
+                resultado.put(muestra.getIdComuna(), new ArrayList<>());
+            }
+            resultado.get(muestra.getIdComuna()).add(muestra);
+        }
+
+        return resultado;
+    }
+
+    // Extra 1
+    private static void eliminarMuestraErronea(List<Muestra> muestras, Double ruido, Integer idComuna) {
+        Muestra muestraABorrar = null;
+        for (Muestra muestra : muestras) {
+            if (muestra.getIdComuna().equals(idComuna) && muestra.getMediaDeRuido().equals(ruido)) {
+                muestraABorrar = muestra;
+            }
+        }
+
+        if (muestraABorrar != null) {
+            muestras.remove(muestraABorrar);
+        }
+    }
+
+    // Extra 2
+    public static Collection<Muestra> obtenerMuestrasDeUnBarrio(List<Muestra> muestras, Collection<Comuna> comunas,
+                                                                String barrio) {
+        Integer comunaDelBarrio = null;
+        for (Comuna comuna : comunas) {
+            if (comuna.getBarrios().contains(barrio) && comuna.getBarrios().size() > 1) {
+                System.out.println("La comuna tiene varios barrios, no podemos saber si las muestras pertenecen a ese barrio");
+                return new ArrayList<>();
+            }
+
+            if (comuna.getBarrios().contains(barrio)) {
+                comunaDelBarrio = comuna.getId();
+            }
+        }
+
+        Map<Integer, List<Muestra>> muestrasPorComuna = agruparMuestrasPorComuna(muestras);
+
+        return muestrasPorComuna.get(comunaDelBarrio);
     }
 }
