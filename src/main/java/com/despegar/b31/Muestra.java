@@ -14,7 +14,15 @@ public class Muestra {
         return idComuna;
     }
 
+    public void setIdComuna(Integer idComuna) {
+        this.idComuna = idComuna;
+    }
+
     public Double getMediaDeRuido() {
         return mediaDeRuido;
+    }
+
+    public void setMediaDeRuido(Double mediaDeRuido) {
+        this.mediaDeRuido = mediaDeRuido;
     }
 }

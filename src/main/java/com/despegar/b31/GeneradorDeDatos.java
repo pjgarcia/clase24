@@ -59,7 +59,7 @@ public class GeneradorDeDatos {
 
             return records.subList(1, records.size()).stream().map(record -> {
                 Set<String> s = new HashSet<>();
-                String[] barrios = record.get(1).split(" - ");
+                String[] barrios = record.get(0).split(" - ");
                 Collections.addAll(s, barrios);
 
                 Integer id = Integer.valueOf(record.get(3));
