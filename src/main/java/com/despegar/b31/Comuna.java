@@ -4,15 +4,15 @@ import java.util.Set;
 
 public class Comuna {
 
-    private String id;
+    private Integer id;
     private Set<String> barrios;
 
-    public Comuna(String id, Set<String> barrios) {
+    public Comuna(Integer id, Set<String> barrios) {
         this.id = id;
         this.barrios = barrios;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 

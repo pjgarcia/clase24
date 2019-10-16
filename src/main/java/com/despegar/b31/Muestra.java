@@ -2,21 +2,15 @@ package com.despegar.b31;
 
 public class Muestra {
 
-    private String id;
-    private String idComuna;
+    private Integer idComuna;
     private Double mediaDeRuido;
 
-    public Muestra(String id, String idComuna, Double mediaDeRuido) {
-        this.id = id;
+    public Muestra(Integer idComuna, Double mediaDeRuido) {
         this.idComuna = idComuna;
         this.mediaDeRuido = mediaDeRuido;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getIdComuna() {
+    public Integer getIdComuna() {
         return idComuna;
     }
 
