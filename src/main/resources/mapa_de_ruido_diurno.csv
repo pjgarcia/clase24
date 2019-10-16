@@ -1,9 +1,4 @@
 limite_inferior_rango_db,limite_superior_rango_db,comuna,leyenda,rango_db,color,periodo
-30.0,35.0,1,35 dBA o menos,30-35,169 255 115,Diurno
-35.0,40.0,1,35-40 dBA,35-40,76 230 0,Diurno
-40.0,45.0,1,40-45 dBA,40-45,38 115 0,Diurno
-45.0,50.0,1,45-50 dBA,45-50,255 255 0,Diurno
-50.0,55.0,1,50-55 dBA,50-55,254 204 92,Diurno
 55.0,60.0,1,55-60 dBA,55-60,230 152 0,Diurno
 60.0,65.0,1,60-65 dBA,60-65,255 0 0,Diurno
 65.0,70.0,1,65-70 dBA,65-70,115 0 0,Diurno
@@ -30,12 +25,6 @@ limite_inferior_rango_db,limite_superior_rango_db,comuna,leyenda,rango_db,color,
 75.0,80.0,3,75-80 dBA,75-80,0 38 255,Diurno
 80.0,85.0,3,80 dBA o más,80-85,0 38 115,Diurno
 85.0,90.0,3,80 dBA o más,85-90,0 38 115,Diurno
-30.0,35.0,4,35 dBA o menos,30-35,169 255 115,Diurno
-35.0,40.0,4,35-40 dBA,35-40,76 230 0,Diurno
-40.0,45.0,4,40-45 dBA,40-45,38 115 0,Diurno
-45.0,50.0,4,45-50 dBA,45-50,255 255 0,Diurno
-50.0,55.0,4,50-55 dBA,50-55,254 204 92,Diurno
-55.0,60.0,4,55-60 dBA,55-60,230 152 0,Diurno
 60.0,65.0,4,60-65 dBA,60-65,255 0 0,Diurno
 65.0,70.0,4,65-70 dBA,65-70,115 0 0,Diurno
 70.0,75.0,4,70-75 dBA,70-75,132 0 168,Diurno
@@ -70,7 +59,6 @@ limite_inferior_rango_db,limite_superior_rango_db,comuna,leyenda,rango_db,color,
 80.0,85.0,7,80 dBA o más,80-85,0 38 115,Diurno
 85.0,90.0,7,80 dBA o más,85-90,0 38 115,Diurno
 90.0,95.0,7,80 dBA o más,90-95,0 38 115,Diurno
-45.0,50.0,8,45-50 dBA,45-50,255 255 0,Diurno
 50.0,55.0,8,50-55 dBA,50-55,254 204 92,Diurno
 55.0,60.0,8,55-60 dBA,55-60,230 152 0,Diurno
 60.0,65.0,8,60-65 dBA,60-65,255 0 0,Diurno
@@ -80,10 +68,6 @@ limite_inferior_rango_db,limite_superior_rango_db,comuna,leyenda,rango_db,color,
 80.0,85.0,8,80 dBA o más,80-85,0 38 115,Diurno
 85.0,90.0,8,80 dBA o más,85-90,0 38 115,Diurno
 90.0,95.0,8,80 dBA o más,90-95,0 38 115,Diurno
-40.0,45.0,9,40-45 dBA,40-45,38 115 0,Diurno
-45.0,50.0,9,45-50 dBA,45-50,255 255 0,Diurno
-50.0,55.0,9,50-55 dBA,50-55,254 204 92,Diurno
-55.0,60.0,9,55-60 dBA,55-60,230 152 0,Diurno
 60.0,65.0,9,60-65 dBA,60-65,255 0 0,Diurno
 65.0,70.0,9,65-70 dBA,65-70,115 0 0,Diurno
 70.0,75.0,9,70-75 dBA,70-75,132 0 168,Diurno
@@ -91,8 +75,6 @@ limite_inferior_rango_db,limite_superior_rango_db,comuna,leyenda,rango_db,color,
 80.0,85.0,9,80 dBA o más,80-85,0 38 115,Diurno
 85.0,90.0,9,80 dBA o más,85-90,0 38 115,Diurno
 90.0,95.0,9,80 dBA o más,90-95,0 38 115,Diurno
-45.0,50.0,10,45-50 dBA,45-50,255 255 0,Diurno
-50.0,55.0,10,50-55 dBA,50-55,254 204 92,Diurno
 55.0,60.0,10,55-60 dBA,55-60,230 152 0,Diurno
 60.0,65.0,10,60-65 dBA,60-65,255 0 0,Diurno
 65.0,70.0,10,65-70 dBA,65-70,115 0 0,Diurno
@@ -122,10 +104,6 @@ limite_inferior_rango_db,limite_superior_rango_db,comuna,leyenda,rango_db,color,
 80.0,85.0,11,80 dBA o más,80-85,0 38 115,Diurno
 85.0,90.0,11,80 dBA o más,85-90,0 38 115,Diurno
 90.0,95.0,11,80 dBA o más,90-95,0 38 115,Diurno
-35.0,40.0,12,35-40 dBA,35-40,76 230 0,Diurno
-40.0,45.0,12,40-45 dBA,40-45,38 115 0,Diurno
-45.0,50.0,12,45-50 dBA,45-50,255 255 0,Diurno
-50.0,55.0,12,50-55 dBA,50-55,254 204 92,Diurno
 55.0,60.0,12,55-60 dBA,55-60,230 152 0,Diurno
 60.0,65.0,12,60-65 dBA,60-65,255 0 0,Diurno
 65.0,70.0,12,65-70 dBA,65-70,115 0 0,Diurno
@@ -133,12 +111,6 @@ limite_inferior_rango_db,limite_superior_rango_db,comuna,leyenda,rango_db,color,
 75.0,80.0,12,75-80 dBA,75-80,0 38 255,Diurno
 80.0,85.0,12,80 dBA o más,80-85,0 38 115,Diurno
 85.0,90.0,12,80 dBA o más,85-90,0 38 115,Diurno
-35.0,40.0,13,35-40 dBA,35-40,76 230 0,Diurno
-40.0,45.0,13,40-45 dBA,40-45,38 115 0,Diurno
-45.0,50.0,13,45-50 dBA,45-50,255 255 0,Diurno
-50.0,55.0,13,50-55 dBA,50-55,254 204 92,Diurno
-55.0,60.0,13,55-60 dBA,55-60,230 152 0,Diurno
-60.0,65.0,13,60-65 dBA,60-65,255 0 0,Diurno
 65.0,70.0,13,65-70 dBA,65-70,115 0 0,Diurno
 70.0,75.0,13,70-75 dBA,70-75,132 0 168,Diurno
 75.0,80.0,13,75-80 dBA,75-80,0 38 255,Diurno
@@ -154,12 +126,6 @@ limite_inferior_rango_db,limite_superior_rango_db,comuna,leyenda,rango_db,color,
 80.0,85.0,14,80 dBA o más,80-85,0 38 115,Diurno
 85.0,90.0,14,80 dBA o más,85-90,0 38 115,Diurno
 55.0,60.0,9,55-60 dBA,55-60,230 152 0,Diurno
-30.0,35.0,15,35 dBA o menos,30-35,169 255 115,Diurno
-35.0,40.0,15,35-40 dBA,35-40,76 230 0,Diurno
-40.0,45.0,15,40-45 dBA,40-45,38 115 0,Diurno
-45.0,50.0,15,45-50 dBA,45-50,255 255 0,Diurno
-50.0,55.0,15,50-55 dBA,50-55,254 204 92,Diurno
-55.0,60.0,15,55-60 dBA,55-60,230 152 0,Diurno
 60.0,65.0,15,60-65 dBA,60-65,255 0 0,Diurno
 65.0,70.0,15,65-70 dBA,65-70,115 0 0,Diurno
 70.0,75.0,15,70-75 dBA,70-75,132 0 168,Diurno

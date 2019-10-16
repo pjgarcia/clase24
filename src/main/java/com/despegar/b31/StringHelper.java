@@ -30,4 +30,11 @@ public class StringHelper {
                 .collect(Collectors.joining(", "));
         return result;
     }
+
+    public static String convertirBarriosDeComuna(Integer id, List<Comuna> comunas) {
+        return comunas.stream()
+                .filter(comuna -> comuna.getId().equals(id)).findFirst()
+                .map(comuna -> comuna.getBarrios().stream().collect(Collectors.joining(", ")))
+                .orElse("(comuna no encontrada)");
+    }
 }
