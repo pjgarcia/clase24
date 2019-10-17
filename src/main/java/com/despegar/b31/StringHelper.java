@@ -1,40 +1,39 @@
 package com.despegar.b31;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class StringHelper {
 
-    public static String convertirSetIntegerAString(Set<Integer> set) {
-        return set.stream().map(String::valueOf).collect(Collectors.joining(", "));
+    public static <T> String convertirColeccionAString(Collection<T> coleccion) {
+        if(coleccion == null) {
+            return "";
+        }
+        return coleccion
+                .stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
     }
 
-    public static String convertirListIntegerAString(List<Integer> set) {
-        return set.stream().map(String::valueOf).collect(Collectors.joining(", "));
-    }
-
-    public static String convertirMapaMuestrasDeRuidoAString(Map<Integer, Integer> mapa) {
-        String result = mapa.entrySet()
+    public static <K, V> String convertirMapaAString(Map<K, V> mapa) {
+        if (mapa == null) {
+            return "";
+        }
+        return mapa.entrySet()
                 .stream()
                 .map(entry -> entry.getKey() + " -> " + entry.getValue())
                 .collect(Collectors.joining(", "));
-        return result;
-    }
-
-    public static String convertirMapaDePromedioDeRuidoAString(Map<Integer, Double> mapa) {
-        String result = mapa.entrySet()
-                .stream()
-                .map(entry -> entry.getKey() + " -> " + entry.getValue())
-                .collect(Collectors.joining(", "));
-        return result;
     }
 
     public static String convertirBarriosDeComuna(Integer id, List<Comuna> comunas) {
+        if(comunas == null) {
+            return "";
+        }
         return comunas.stream()
                 .filter(comuna -> comuna.getId().equals(id)).findFirst()
-                .map(comuna -> comuna.getBarrios().stream().collect(Collectors.joining(", ")))
+                .map(comuna -> String.join(", ", comuna.getBarrios()))
                 .orElse("(comuna no encontrada)");
     }
 }

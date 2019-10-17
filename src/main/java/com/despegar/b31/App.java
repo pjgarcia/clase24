@@ -18,7 +18,7 @@ public class App {
         System.out.println("2) Barrios despues del arreglo: " + StringHelper.convertirBarriosDeComuna(5, comunas));
 
         // Ejercicio 3 - Depurando la fuente de datos
-        reemplazarMuestra(muestras, 60.0, 2, 62.0);
+        reemplazarMuestra(muestras, 60, 2, 62);
 
         // Ejercicio 4 - Comuna mas ruidosa
         Integer comunaMasRuidosa = obtenerComunaMasRuidosa(muestras);
@@ -26,19 +26,19 @@ public class App {
 
         // Ejercicio 5 - Ruido promedio
         Double ruidoPromedio = obtenerRuidoPromedio(muestras);
-        System.out.println("5) El ruido promedio de CABA es: " + ruidoPromedio);
+        System.out.println(String.format("5) El ruido promedio de CABA es: %.2f db", ruidoPromedio));
 
         // Ejercicio 6 - Comunas mas silenciosas
         Set<Integer> comunasMasSilenciosas = obtenerComunasConMuestrasSilenciosas(muestras);
-        System.out.println("6) Las comunas mas silenciosas son: " + StringHelper.convertirSetIntegerAString(comunasMasSilenciosas));
+        System.out.println("6) Las comunas mas silenciosas son: " + StringHelper.convertirColeccionAString(comunasMasSilenciosas));
 
         // Ejercicio 7 - Reporte de mediciones
         Map<Integer, Integer> reporteMuetrasPorComuna = obtenerReporteDeMuestrasPorComuna(muestras);
-        System.out.println("7) La cantidad de muestras por comunas es: " + StringHelper.convertirMapaMuestrasDeRuidoAString(reporteMuetrasPorComuna));
+        System.out.println("7) La cantidad de muestras por comunas es: " + StringHelper.convertirMapaAString(reporteMuetrasPorComuna));
 
         // Ejercicio 8 - Promedio de ruido por comuna
         Map<Integer, Double> promedioDeRuidoPorComuna = obtenerPromedioDeRuidoPorComuna(muestras);
-        System.out.println("8) El promedio de ruido por comuna es: " + StringHelper.convertirMapaDePromedioDeRuidoAString(promedioDeRuidoPorComuna));
+        System.out.println("8) El promedio de ruido por comuna es: " + StringHelper.convertirMapaAString(promedioDeRuidoPorComuna));
     }
 
     public static Integer conocerCantidadDeMuestras(List<Muestra> muestras) {
@@ -58,11 +58,10 @@ public class App {
         }
     }
 
-    public static void reemplazarMuestra(List<Muestra> muestras, Double viejoRuido, 
-                                         Integer comunaId, Double nuevoRuido) {
+    public static void reemplazarMuestra(List<Muestra> muestras, Integer viejoRuido, Integer comunaId, Integer nuevoRuido) {
         for (Muestra muestra : muestras) {
-            if (muestra.getIdComuna().equals(comunaId) && muestra.getMediaDeRuido().equals(viejoRuido)) {
-                muestra.setMediaDeRuido(nuevoRuido);
+            if (muestra.getIdComuna().equals(comunaId) && muestra.getRuido().equals(viejoRuido)) {
+                muestra.setRuido(nuevoRuido);
             }
         }
     }
@@ -70,7 +69,7 @@ public class App {
     public static Integer obtenerComunaMasRuidosa(List<Muestra> muestras) {
         Muestra muestraMasRuidosa = muestras.get(0);
         for (Muestra muestra : muestras) {
-            if (muestra.getMediaDeRuido() > muestraMasRuidosa.getMediaDeRuido()) {
+            if (muestra.getRuido() > muestraMasRuidosa.getRuido()) {
                 muestraMasRuidosa = muestra;
             }
         }
@@ -80,7 +79,7 @@ public class App {
     public static Double obtenerRuidoPromedio(List<Muestra> muestras) {
         Double sumatoria = 0D;
         for (Muestra muestra : muestras) {
-            sumatoria += muestra.getMediaDeRuido();
+            sumatoria += muestra.getRuido();
         }
         return sumatoria / muestras.size();
     }
@@ -90,7 +89,7 @@ public class App {
         Set<Integer> resultado = new HashSet<>();
 
         for (Muestra muestra : muestras) {
-            if (muestra.getMediaDeRuido() < 50) {
+            if (muestra.getRuido() < 50) {
                 resultado.add(muestra.getIdComuna());
             }
         }
@@ -123,7 +122,7 @@ public class App {
             List<Muestra> muestrasDeLaComuna = muestrasPorComuna.get(idComuna);
             Double suma = 0D;
             for (Muestra muestra : muestrasDeLaComuna) {
-                suma += muestra.getMediaDeRuido();
+                suma += muestra.getRuido();
             }
 
             resultado.put(idComuna, suma / muestrasDeLaComuna.size());
@@ -144,10 +143,10 @@ public class App {
     }
 
     // Extra 1
-    private static void eliminarMuestraErronea(List<Muestra> muestras, Double ruido, Integer idComuna) {
+    private static void eliminarMuestraErronea(List<Muestra> muestras, Integer ruido, Integer idComuna) {
         Muestra muestraABorrar = null;
         for (Muestra muestra : muestras) {
-            if (muestra.getIdComuna().equals(idComuna) && muestra.getMediaDeRuido().equals(ruido)) {
+            if (muestra.getIdComuna().equals(idComuna) && muestra.getRuido().equals(ruido)) {
                 muestraABorrar = muestra;
             }
         }
@@ -158,8 +157,7 @@ public class App {
     }
 
     // Extra 2
-    public static Collection<Muestra> obtenerMuestrasDeUnBarrio(List<Muestra> muestras, Collection<Comuna> comunas,
-                                                                String barrio) {
+    public static Collection<Muestra> obtenerMuestrasDeUnBarrio(List<Muestra> muestras, List<Comuna> comunas, String barrio) {
         Integer comunaDelBarrio = null;
         for (Comuna comuna : comunas) {
             if (comuna.getBarrios().contains(barrio) && comuna.getBarrios().size() > 1) {

@@ -3,11 +3,11 @@ package com.despegar.b31;
 public class Muestra {
 
     private Integer idComuna;
-    private Double mediaDeRuido;
+    private Integer ruido;
 
-    public Muestra(Integer idComuna, Double mediaDeRuido) {
+    public Muestra(Integer idComuna, Integer ruido) {
         this.idComuna = idComuna;
-        this.mediaDeRuido = mediaDeRuido;
+        this.ruido = ruido;
     }
 
     public Integer getIdComuna() {
@@ -18,11 +18,11 @@ public class Muestra {
         this.idComuna = idComuna;
     }
 
-    public Double getMediaDeRuido() {
-        return mediaDeRuido;
+    public Integer getRuido() {
+        return ruido;
     }
 
-    public void setMediaDeRuido(Double mediaDeRuido) {
-        this.mediaDeRuido = mediaDeRuido;
+    public void setRuido(Integer ruido) {
+        this.ruido = ruido;
     }
 }

@@ -27,8 +27,8 @@ public class GeneradorDeDatos {
             }
 
             return records.subList(1, records.size()).stream().map(record -> {
-                String minimum = record.get(4).split("-")[0];
-                return new Muestra(Integer.valueOf(record.get(2)), Double.parseDouble(minimum));
+                Integer ruido = Integer.parseInt(record.get(0));
+                return new Muestra(Integer.valueOf(record.get(1)), ruido);
             }).collect(Collectors.toList());
         } catch (FileNotFoundException e) {
             return new ArrayList<>();
